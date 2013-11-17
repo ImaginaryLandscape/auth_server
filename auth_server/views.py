@@ -6,7 +6,7 @@ from rest_framework.authentication import BasicAuthentication
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from rest_framework import status
+from rest_framework import status, renderers
 
 from .models import AuthenticationLog
 
@@ -16,13 +16,15 @@ class CustomBasicAuthentication(BasicAuthentication):
 
 
 class AuthView(APIView):
-    authentication_classes = (CustomBasicAuthentication,)
-    permission_classes = (IsAuthenticated,)
     """
     Returns 200 if an active User exists for the 
     given basic auth request.  Otherwise, returns 
     the appropriate HTTP error code. 
     """
+    authentication_classes = (CustomBasicAuthentication,)
+    permission_classes = (IsAuthenticated,)
+    renderer_classes = [renderers.JSONRenderer]
+
     def get(self, request, format=None):
         content = {}
         headers = {'Cache-Control':"no-cache, no-store, must-revalidate", 
