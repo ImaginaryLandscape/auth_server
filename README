@@ -1,0 +1,23 @@
+
+
+NOTES: 
+
+  This module requires: 
+    django
+    django-rest-framework
+
+  The demo directory contains an example django project.
+
+INSTALLING the MODULE
+
+1) Install the this package
+    python setup.py install 
+
+2) Add the following to INSTALLED_APPS in settings.py
+
+    'rest_framework', 
+    'auth_server',
+
+3) Add the following to urls.conf 
+
+    url(r'^$', include('auth_server.urls')),
