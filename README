@@ -37,6 +37,11 @@ text, this module should ONLY be hosted under HTTPS.
 
     url(r'^$', include('auth_server.urls')),
     
+4) Run syncdb and migrate (is south is installed)
+
+    ./manage.py syncdb
+    ./manage.py migrate auth_server
+    
 
 ## TESTING the MODULE ##
 
