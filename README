@@ -18,8 +18,9 @@ text, this module should ONLY be hosted under HTTPS.
 ## NOTES ##
 
   This module requires: 
-    django
+    django>=1.4
     django-rest-framework
+    jsonfield
 
   The demo directory contains an example django project.
 
