@@ -21,3 +21,24 @@ INSTALLING the MODULE
 3) Add the following to urls.conf 
 
     url(r'^$', include('auth_server.urls')),
+    
+
+TESTING the MODULE
+
+0) Create a virtualenv and activate if desired
+
+    virtualenv test_demo
+    cd test_demo; . ./bin/activate
+
+1) Go to the demo directory
+
+    cd auth_server/demo/
+
+2) Install the requirements
+
+    pip install -r requirements.txt
+
+3) Run the test
+
+    ./manage.py test 
+    
