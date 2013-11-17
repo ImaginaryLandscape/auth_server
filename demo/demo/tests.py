@@ -26,6 +26,9 @@ class TestAuthServer(TestCase):
     def test_auth_ok(self):
         self.user_check(self.user_joe, 'joe', '1234', 200)
 
+    def test_auth_not_ok(self):
+        self.user_check(self.user_joe, 'joe', '1234a', 401)
+
     def test_non_staff(self):
         self.user_check(self.user_john, 'john', '1234', 200)
 
