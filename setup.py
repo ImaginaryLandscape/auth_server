@@ -15,4 +15,10 @@ setup(name='auth_server',
         "Django >= 1.3.0",
         "djangorestframework",
        ],
-     )
+    extras_require = {
+       'testing': [
+           "mock >= 1.0.1",
+           "nose",
+           "six"],
+    },
+)
