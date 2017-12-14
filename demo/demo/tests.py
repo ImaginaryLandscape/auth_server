@@ -2,15 +2,22 @@ from django.test import TestCase, Client
 from django.contrib.auth.models import User
 import base64
 
+
 class TestAuthServer(TestCase):
 
     def setUp(self):
-        self.user_joe = User.objects.create_user('joe', 'test1@example.com', '1234',)
-        User.objects.filter(pk=self.user_joe.id).update(**dict(is_active=True, is_staff=True, is_superuser=True))
-        self.user_john = User.objects.create_user('john', 'test2@example.com', '1234',)
-        User.objects.filter(pk=self.user_john.id).update(**dict(is_active=True, is_staff=False, is_superuser=False))
-        self.user_jane = User.objects.create_user('jane', 'test31@example.com', '1234',)
-        User.objects.filter(pk=self.user_jane.id).update(**dict(is_active=False, is_staff=True, is_superuser=True))
+        self.user_joe = User.objects.create_user(
+            'joe', 'test1@example.com', '1234',)
+        User.objects.filter(pk=self.user_joe.id).update(
+            **dict(is_active=True, is_staff=True, is_superuser=True))
+        self.user_john = User.objects.create_user(
+            'john', 'test2@example.com', '1234',)
+        User.objects.filter(pk=self.user_john.id).update(
+            **dict(is_active=True, is_staff=False, is_superuser=False))
+        self.user_jane = User.objects.create_user(
+            'jane', 'test31@example.com', '1234',)
+        User.objects.filter(pk=self.user_jane.id).update(
+            **dict(is_active=False, is_staff=True, is_superuser=True))
         self.c = Client()
 
     def create_credentials(self, username, password):
@@ -18,7 +25,8 @@ class TestAuthServer(TestCase):
 
     def user_check(self, user, username, password, status_code):
         auth_headers = {
-            'HTTP_AUTHORIZATION': 'Basic ' + base64.b64encode('%s:%s' % (username, password)),
+            'HTTP_AUTHORIZATION': 'Basic ' + base64.b64encode(
+                '%s:%s' % (username, password)),
         }
         response = self.c.get('/', **auth_headers)
         self.assertEqual(response.status_code, status_code,)

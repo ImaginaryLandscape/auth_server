@@ -5,22 +5,21 @@ import sys
 
 PROJECT_DIR = os.path.abspath(os.path.dirname(__file__))
 
-sys.path.append(os.path.abspath(os.path.join(PROJECT_DIR, '..','..')))
+sys.path.append(os.path.abspath(os.path.join(PROJECT_DIR, '..', '..')))
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-  # ("Example", "example@example.com"),
+    # ("Example", "example@example.com"),
 )
 
 MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'sqlite3.db', 
-        # The following settings are not used with sqlite3:
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'sqlite3.db',
     }
 }
 
@@ -37,7 +36,7 @@ TIME_ZONE = 'America/Chicago'
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
 LANGUAGE_CODE = 'en-us'
-LANGUAGE_COOKIE_NAME = "language" 
+LANGUAGE_COOKIE_NAME = "language"
 
 SITE_ID = 1
 
@@ -84,7 +83,7 @@ STATICFILES_DIRS = (
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-#    'django.contrib.staticfiles.finders.DefaultStorageFinder',
+    # 'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
 
 # Make this unique, and don't share it with anybody.
@@ -94,17 +93,17 @@ SECRET_KEY = 'p@%8m9m6!-zg=9muwc=t&*inii7a_(p!k&gt33ozv5=h9@!hca'
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
-#     'django.template.loaders.eggs.Loader',
+    # 'django.template.loaders.eggs.Loader',
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
-  'django.contrib.auth.context_processors.auth', 
-  'django.core.context_processors.debug', 
-  'django.core.context_processors.i18n', 
-  'django.core.context_processors.media', 
-  'django.core.context_processors.static', 
-  'django.core.context_processors.tz', 
-  'django.contrib.messages.context_processors.messages',
+    'django.contrib.auth.context_processors.auth',
+    'django.core.context_processors.debug',
+    'django.core.context_processors.i18n',
+    'django.core.context_processors.media',
+    'django.core.context_processors.static',
+    'django.core.context_processors.tz',
+    'django.contrib.messages.context_processors.messages',
 )
 
 
@@ -142,11 +141,11 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
-    'django_extensions', 
-    'south', 
+    'django_extensions',
+    'south',
     'django_nose',
-    
-    'rest_framework', 
+
+    'rest_framework',
 
     'auth_server',
 )

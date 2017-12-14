@@ -1,10 +1,8 @@
-from settings_base import *
-import os
+from settings_base import *  # noqa
 
-DEBUG=True
-COMPRESS_ENABLED=True
+DEBUG = True
+COMPRESS_ENABLED = True
 
-SECRET_KEY="asdfwefgpihphappqwer"
+SECRET_KEY = "asdfwefgpihphappqwer"
 
 ALLOWED_HOSTS = ['*']
-
