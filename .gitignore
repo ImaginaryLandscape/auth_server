@@ -36,3 +36,5 @@ build/
 *.egg-info
 dist/
 .ropeproject/
+.coverage
+.tox/

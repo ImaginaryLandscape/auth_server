@@ -15,11 +15,14 @@ setup(
     install_requires=[
         "Django >= 1.8.0, <2.0",
         "djangorestframework",
+        "jsonfield",
     ],
     extras_require={
        'testing': [
            "mock >= 1.0.1",
-           "nose",
+           "coverage",
+           "tox",
+           "django-extensions",
            "six"],
     },
 )

@@ -1,4 +1,4 @@
-from settings_base import *  # noqa
+from demo.settings_base import *  # noqa
 
 DEBUG = True
 COMPRESS_ENABLED = True

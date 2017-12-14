@@ -21,12 +21,14 @@ class TestAuthServer(TestCase):
         self.c = Client()
 
     def create_credentials(self, username, password):
-        return ('%s:%s' % (username, password)).encode('base64').rstrip('\n')
+        return ('{}:{}'.format(username, password)).encode('base64').rstrip('\n')
 
     def user_check(self, user, username, password, status_code):
+        creds = '{}:{}'.format(username, password)
+        creds = creds.encode("utf8")
+        b64creds = base64.b64encode(creds)
         auth_headers = {
-            'HTTP_AUTHORIZATION': 'Basic ' + base64.b64encode(
-                '%s:%s' % (username, password)),
+            'HTTP_AUTHORIZATION': 'Basic ' + b64creds.decode('utf8'),
         }
         response = self.c.get('/', **auth_headers)
         self.assertEqual(response.status_code, status_code,)

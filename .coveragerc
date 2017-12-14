@@ -1,0 +1,11 @@
+[run]
+source =
+    auth_server
+    demo
+omit=
+    */migrations/*
+    */tests/*
+    */tests.py
+    */env/*
+    */manage.py
+branch = true
