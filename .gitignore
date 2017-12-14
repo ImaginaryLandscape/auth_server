@@ -35,3 +35,4 @@ _$*
 build/
 *.egg-info
 dist/
+.ropeproject/
