@@ -1,5 +1,5 @@
 This module is designed to act as a Basic Auth server.
-Active Django Users can be authenticatd against by 
+Active Django Users can be authenticatd against by
 performing requests to whereever the auth_moulde url is mounted.
 
 For example, performing the following request will try to authenticate
@@ -13,11 +13,11 @@ or non-200 for a failed authentication.
 Middleware on the client side can be designed to make this request.
 
 IMPORTANT: because the passwords and usernames are passed in plain
-text, this module should ONLY be hosted under HTTPS. 
+text, this module should ONLY be hosted under HTTPS.
 
 ## NOTES ##
 
-  This module requires: 
+  This module requires:
     django>=1.4
     django-rest-framework
     jsonfield
@@ -27,22 +27,21 @@ text, this module should ONLY be hosted under HTTPS.
 ## INSTALLING the MODULE ##
 
 1) Install the this package
-    python setup.py install 
+    python setup.py install
 
 2) Add the following to INSTALLED_APPS in settings.py
 
-    'rest_framework', 
+    'rest_framework',
     'auth_server',
 
-3) Add the following to urls.conf 
+3) Add the following to urls.conf
 
     url(r'^$', include('auth_server.urls')),
-    
-4) Run syncdb and migrate (is south is installed)
 
-    ./manage.py syncdb
-    ./manage.py migrate auth_server
-    
+4) Run migrate
+
+    ./manage.py migrate
+
 
 ## TESTING the MODULE ##
 
@@ -61,5 +60,15 @@ text, this module should ONLY be hosted under HTTPS.
 
 3) Run the test
 
-    ./manage.py test 
-    
+    ./manage.py test
+
+
+## TESTING the MODULE with DOCKER and TOX ##
+
+1) install Docker
+
+2) install docker-compose
+
+3) docker-compose up --build
+
+4) have some coffee
