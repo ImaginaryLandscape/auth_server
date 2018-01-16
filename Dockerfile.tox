@@ -41,6 +41,12 @@ RUN pyenv local `cat $PYENV_REQUIRED_PYTHON | tr '\n' ' '`
 
 WORKDIR /app
 
+# Fake the the addition of the module, so we can cache the tox build a bit.
+COPY tox.ini /app/tox.ini
+COPY setup.py /app/setup.py
+RUN mkdir auth_server; touch auth_server/__init__.py
+RUN tox --notest
+
 COPY . /app/
 
 CMD ["tox"]
