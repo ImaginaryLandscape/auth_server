@@ -11,7 +11,7 @@ class AuthenticationLogManager(models.Manager):
         self.create(username=username, client_information=client_information)
 
 class AuthenticationLog(models.Model):
-    created = models.DateTimeField(u'Created Date', auto_now_add=True)
+    created = models.DateTimeField('Created Date', auto_now_add=True)
     username = models.CharField(max_length=100)
     client_information = JSONField(blank=True, null=True)
     

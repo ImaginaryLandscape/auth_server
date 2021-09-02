@@ -1,9 +1,10 @@
-from urlparse import urlparse
+from urllib import parse
+from django.utils.deprecation import MiddlewareMixin
 
-class FixZopeMiddleware(object):
+class FixZopeMiddleware(MiddlewareMixin):
 
 	def process_request(self, request):
-		r = urlparse(request.path_info).path
+		r = parse.urlparse(request.path_info).path
 		if not r:
 			r = "/"
 		request.path = r

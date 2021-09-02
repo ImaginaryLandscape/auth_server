@@ -32,7 +32,7 @@ class AuthView(APIView):
         http_status=status.HTTP_200_OK
         user = request.user
         content.update({
-        'user': unicode(user),  # `django.contrib.auth.User` instance.
+        'user': str(user),  # `django.contrib.auth.User` instance.
         })
         
         AuthenticationLog.objects.record(user.username, request)
